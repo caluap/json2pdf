@@ -1,0 +1,21 @@
+{
+  "name": "json2pdf",
+  "version": "0.0.1",
+  "description": "Receives a JSON with instructions to create a PDF (in processing). This app will route this process",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "processing",
+    "generative",
+    "design"
+  ],
+  "author": "Caluã L Pataca (http://www.caluapataca.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0"
+  }
+}
