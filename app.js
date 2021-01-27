@@ -1,6 +1,7 @@
 const express = require("express");
 const formidable = require("express-formidable");
 const cors = require("cors");
+const fs = require("fs");
 
 var app = express();
 
@@ -12,8 +13,12 @@ app.use(formidable());
 app.post("/post", (req, res) => {
   //req.fields contains non-file fields
   //req.files contains files
-  // res.send(JSON.stringify(req.fields));
-  let j = req.fields.data;
+  console.log(`Received data from ${req.headers.origin}...`);
+  let data = req.fields.data;
+  fs.writeFile("./data.json", data, (err) => {
+    if (err) throw err;
+    console.log("Saved JSON file...");
+  });
 });
 
 app.listen(2020, () => {
