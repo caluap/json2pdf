@@ -40,8 +40,19 @@ void draw() {
       strokeWeight(instruction.getFloat("strokeWeight"));
     }
     
-    line(p1.getFloat("x"), p1.getFloat("y"), p1.getFloat("z"),
-         p2.getFloat("x"), p2.getFloat("y"), p2.getFloat("z"));
+    
+    if (p1.isNull("x") == false && p1.isNull("y") == false && p1.isNull("z") == false &&
+        p2.isNull("x") == false && p2.isNull("y") == false && p2.isNull("z") == false) {
+          
+        float x1,x2,y1,y2,z1,z2;
+        x1 = p1.getFloat("x");
+        y1 = p1.getFloat("y");
+        z1 = p1.getFloat("z");
+        x2 = p2.getFloat("x");
+        y2 = p2.getFloat("y");
+        z2 = p2.getFloat("z");
+        line(x1, y1, z1, x2, y2, z2);
+    }
     
   }
   
