@@ -1,4 +1,6 @@
 import json
+add_library('pdf')
+
 
 with open('data.json') as f:
     data = json.load(f)
@@ -9,6 +11,8 @@ def setup():
 
 
 def draw():
+    # beginRaw("processing.pdf.PGraphicsPDF", 'output.pdf')
+    beginRaw(PDF, 'output.pdf')
     background(0)
     for instruction in data['instructions']:
         if instruction["command"] == "line":
@@ -20,5 +24,6 @@ def draw():
             p2 = instruction["p2"]
             line(p1["x"], p1["y"], p1["z"], p2["x"], p2["y"], p2["z"])
 
+    endRaw()
     save("output.png")
     exit()
