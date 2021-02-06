@@ -12,15 +12,7 @@ void setup() {
 }
 
 void draw() {
-  int w = canvasProperties.getInt("w"),
-  h = canvasProperties.getInt("h");
-  if (w != width || h != height){
-    println("Resized...");
-    println(width + "/" + height + "---" + w + "/" + h);
-    surface.setSize(w,h);
-  }
-  
-  
+
   beginRaw(PDF, "./output.pdf");
   
   fill(0);

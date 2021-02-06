@@ -24,8 +24,14 @@ app.post("/post", (req, res) => {
 
     // https://stackabuse.com/executing-shell-commands-with-node-js/#:~:text=Conclusion-,Node.,be%20available%20via%20event%20listeners.
     // let command = `java -jar /Users/calua/repositorios/processing.py-3017-macosx/processing-py.jar json2pdf.py`;
+    // `sed -i '.bak' 's/original/new/g' file.txt`
+    let h = data.canvas.h,
+      w = data.canvas.w;
+
     let command =
-      "processing-java --sketch=/Users/calua/repositorios/json2pdf --run";
+      `sed -i '.bak' 's/size(408,577, P3D);/size(${w},${h}, P3D);/g' json2pdf.pde` +
+      ` && processing-java --sketch=/Users/calua/repositorios/json2pdf --run` +
+      ` && mv json2pdf.pde.bak json2pdf.pde && rm data.json`;
 
     exec(command, (error, stdout, stderr) => {
       if (error) {
